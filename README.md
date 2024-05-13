@@ -283,7 +283,9 @@ int main() {
 ```
 
 <h2>Pointer Tanımlaması</h2>
+
 <h3>Bir pointer tanımlama ve bir değişkenin adresini bu pointera atama</h3>
+
 ```c
 #include <stdio.h>
 
@@ -302,7 +304,7 @@ int main() {
 ```
 
 
-<h3>Pointer Aracılıüıyla Dizi Tanımlaması</h3>
+<h3>Pointer Aracılığıyla Dizi Tanımlaması</h3>
 
 ```c
 #include <stdio.h>
