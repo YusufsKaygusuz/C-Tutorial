@@ -5,6 +5,7 @@
 |-------|--------------------------------------------|
 | 📆 Ders 1 | [**Değişkenlerin Tanımlanması**](#ders-1-değişkenlerin-tanımlanması) |
 | 📆 Ders 2 | [**Fonksiyonlar ve Pointer Tanımlanması**](#ders-2-fonksiyonlar-ve-pointer-tanımlanması) |
+| 📆 Ders 3 | [**String Konusuna Giriş ve Örneklerle Pekiştirme**](#ders-3-string-konusuna-giriş-ve-örneklerle-pekiştirme) |
 
 ## Ders 1: Değişkenlerin Tanımlanması
 
@@ -424,3 +425,120 @@ int main() {
 
 }
 ```
+
+## Ders 3: String Konusuna Giriş ve Örneklerle Pekiştirme
+
+<h3>Bir stringi ekrana yazdıran basit bir örnek</h3>
+
+```c
+#include <stdio.h>
+
+int main() {
+    char str[] = "Merhaba, dünya!";
+    
+    printf("%s\n", str);
+    
+    return 0;
+}
+```
+
+<h3>String uzunluğunu bulma</h3>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[] = "Merhaba, dünya!";
+    int uzunluk = strlen(str);
+    
+    printf("String uzunluğu: %d\n", uzunluk);
+    
+    return 0;
+}
+```
+
+
+<h3>Stringleri birleştirme</h3>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str1[20] = "Merhaba, ";
+    char str2[] = "dünya!";
+    
+    strcat(str1, str2);
+    
+    printf("%s\n", str1);
+    
+    return 0;
+}
+```
+
+
+<h3>String kopyalama</h3>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str1[20];
+    char str2[] = "Merhaba, dünya!";
+    
+    strcpy(str1, str2);
+    
+    printf("%s\n", str1);
+    
+    return 0;
+}
+```
+
+
+<h3>İki stringin karşılaştırılması</h3>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str1[] = "Merhaba";
+    char str2[] = "Merhaba";
+
+    if (strcmp(str1, str2) == 0) {
+        printf("İki string birbirine eşittir.\n");
+    } else {
+        printf("İki string birbirine eşit değildir.\n");
+    }
+
+    return 0;
+}
+```
+
+
+<h3>Bir stringin içinde belirli bir karakterin aranması</h3>
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[] = "Merhaba, dünya!";
+    char ch = 'a';
+    char *ptr;
+
+    ptr = strchr(str, ch);
+
+    if (ptr != NULL) {
+        printf("'%c' karakteri '%s' stringinde bulundu.\n", ch, str);
+    } else {
+        printf("'%c' karakteri '%s' stringinde bulunamadı.\n", ch, str);
+    }
+
+    return 0;
+}
+```
+
+
