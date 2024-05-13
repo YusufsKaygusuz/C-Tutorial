@@ -4,6 +4,7 @@
 | Ders | Ders İçerik                             |
 |-------|--------------------------------------------|
 | 📆 Ders 1 | [**Değişkenlerin Tanımlanması**](#ders-1-değişkenlerin-tanımlanması) |
+| 📆 Ders 2 | [**Fonksiyonlar ve Pointer Tanımlanması**](#ders-2-fonksiyonlar-ve-pointer-tanımlanması) |
 
 ## Ders 1: Değişkenlerin Tanımlanması
 
@@ -198,7 +199,226 @@ int main() {
 }
 ```
 
+## Ders 2: Fonksiyonlar ve Pointer Tanımlanması
+
+<h3>Basit Fonksiyon Tanımlaması</h3>
+
+```c
+#include <stdio.h>
+
+// Fonksiyon tanımı
+void selamla() {
+    printf("Merhaba! Bu bir fonksiyon.\n");
+}
+
+int main() {
+    // Fonksiyon çağrısı
+    selamla();
+
+    return 0;
+}
+```
 
 
+<h3>Parametreli Fonksiyon Tanımlaması</h3>
+
+```c
+#include <stdio.h>
+
+// Parametreli fonksiyon tanımı
+void kareAlVeYazdir(int sayi) {
+    int kare = sayi * sayi;
+    printf("%d sayısının karesi: %d\n", sayi, kare);
+}
+
+int main() {
+    // Parametreli fonksiyon çağrısı
+    kareAlVeYazdir(5);
+    kareAlVeYazdir(8);
+
+    return 0;
+}
+
+```
 
 
+<h3>Parametreli ve Geriye Değer Döndüren Fonksiyon Tanımlaması</h3>
+
+```c
+#include <stdio.h>
+
+// Fonksiyon tanımı
+int topla(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    // Fonksiyon çağrısı ve değeri kullanma
+    int sonuc = topla(3, 4);
+    printf("Toplam: %d\n", sonuc);
+
+    return 0;
+}
+
+```
+
+<h3>Parametreli ve Geriye Değer Döndüren Fonksiyon Tanımlaması</h3>
+
+```c
+#include <stdio.h>
+
+// Fonksiyon tanımı
+int topla(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    // Fonksiyon çağrısı ve değeri kullanma
+    int sonuc = topla(3, 4);
+    printf("Toplam: %d\n", sonuc);
+
+    return 0;
+}
+
+```
+
+<h2>Pointer Tanımlaması</h2>
+<h3>Bir pointer tanımlama ve bir değişkenin adresini bu pointera atama</h3>
+```c
+#include <stdio.h>
+
+int main() {
+    int num = 10; // Bir tamsayı değişkeni tanımla ve değerini ata
+    int *ptr; // Bir tamsayı pointer'ı tanımla
+
+    ptr = &num; // Değişkenin adresini pointera ata
+
+    printf("num değişkeninin değeri: %d\n", num);
+    printf("ptr pointer'ının gösterdiği değer: %d\n", *ptr);
+
+    return 0;
+}
+
+```
+
+
+<h3>Pointer Aracılıüıyla Dizi Tanımlaması</h3>
+
+```c
+#include <stdio.h>
+
+int main() {
+    int numbers[] = {1, 2, 3, 4, 5}; // Bir tamsayı dizisi tanımla
+
+    // Dizi elemanlarını gezmek için bir pointer tanımla ve diziye başlangıç adresini ata
+    int *ptr = numbers;
+
+    // Diziyi gez ve elemanları ekrana yazdır
+    printf("Dizi elemanlari:\n");
+    for (int i = 0; i < 5; ++i) {
+        printf("%d ", *ptr); // Pointer'ın gösterdiği değeri yazdır
+        ptr++; // Pointer'ı bir sonraki dizi elemanına ilerlet
+    }
+    printf("\n");
+
+    return 0;
+}
+```
+
+
+<h3>Pointer Aracılıüıyla Dizi Tanımlaması</h3>
+
+```c
+#include <stdio.h>
+
+int main() {
+    int numbers[] = {1, 2, 3, 4, 5}; // Bir tamsayı dizisi tanımla
+
+    // Dizi elemanlarını gezmek için bir pointer tanımla ve diziye başlangıç adresini ata
+    int *ptr = numbers;
+
+    // Diziyi gez ve elemanları ekrana yazdır
+    printf("Dizi elemanlari:\n");
+    for (int i = 0; i < 5; ++i) {
+        printf("%d ", *ptr); // Pointer'ın gösterdiği değeri yazdır
+        ptr++; // Pointer'ı bir sonraki dizi elemanına ilerlet
+    }
+    printf("\n");
+
+    return 0;
+}
+```
+
+
+<h3>Pointer kullanarak bir fonksiyon içinde değerlerin yer değiştirmesi</h3>
+
+```c
+#include <stdio.h>
+
+void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main() {
+    int a = 5, b = 10;
+
+    printf("Before swap: a = %d, b = %d\n", a, b);
+
+    swap(&a, &b);
+
+    printf("After swap: a = %d, b = %d\n", a, b);
+
+    return 0;
+}
+```
+
+<h3>Pointer aritmetiği kullanarak bir diziyi dolaşma</h3>
+
+```c
+#include <stdio.h>
+
+int main() {
+    int numbers[] = {1, 2, 3, 4, 5};
+    int *ptr = numbers;
+
+    printf("Array elements:\n");
+    for (int i = 0; i < 5; ++i) {
+        printf("%d ", *ptr);
+        ptr++;
+    }
+    printf("\n");
+
+    return 0;
+}
+```
+
+
+<h3>Bir dizinin elemanlarını toplayan bir fonksiyon kullanarak pointer kullanımı</h3>
+
+```c
+#include <stdio.h>
+
+// Bir dizinin elemanlarını toplayan fonksiyon
+int toplam(const int *ptr, int size) {
+    int sum = 0;
+    for (int i = 0; i < size; ++i) {
+        sum += *ptr; // Pointer'ın gösterdiği değeri toplama ekle
+        ptr++; // Pointer'ı bir sonraki elemana ilerlet
+    }
+    return sum;
+}
+
+int main() {
+    int numbers[] = {1, 2, 3, 4, 5};
+    int size = sizeof(numbers) / sizeof(numbers[0]);
+
+    int result = toplam(numbers, size);
+    printf("Dizinin elemanlarinin toplami: %d\n", result);
+
+    return 0;
+}
+
+}
+```
